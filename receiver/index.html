@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .fit { /* set relative picture size */
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .center {
+            display: block;
+            margin: auto;
+        }
+		#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+    </style>
+	<head>
+		<title>Cast Demo</title>
+	</head>
+    <body>
+ 
+        <img class="center fit" id ="imageOne" src ="http://rom.handy.travel/tv/root1.jpg" onclick = "changeColor()"/>
+		<div id="snackbar"></div>
+		<script type='text/javascript' src='//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js'></script>
+        <script>
+
+			window.onload = function() {
+				window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+				castReceiverManager.onReady = function(event) {
+					window.castReceiverManager.setApplicationState('URL Cast ready...');
+				};
+			
+				// messages on a custom namespace
+				var ns = 'urn:x-cast:com.url.cast';
+				window.messageBus = window.castReceiverManager.getCastMessageBus(ns);
+				window.messageBus.onMessage = function(e) {
+					var msg = JSON.parse(e.data);
+					window.messageBus.send(e.senderId, 'ok');
+					if (msg.type === 'image') changeImage(msg.url);
+					if (msg.type === 'api') showToast('call api: ' + msg.url);
+				};
+				// initialize CastReceiverManager
+				window.castReceiverManager.start({statusText: 'URL Cast starting...'});
+			};
+			            
+			var image =  document.getElementById("imageOne");
+			
+			function changeColor() {
+				if (image.getAttribute('src') == "http://rom.handy.travel/tv/root1.jpg"){
+                    changeImage("http://rom.handy.travel/tv/dining1.jpg");
+                } else {
+                    changeImage("http://rom.handy.travel/tv/root1.jpg");
+                }
+			}
+			
+            function changeImage(url){
+                image.src = url;
+            }
+        </script>
+		
+		<script>
+			function showToast(message) {
+			var x = document.getElementById("snackbar");
+			x.innerHTML = message
+			x.className = "show";
+			setTimeout(function(){ 
+				x.className = x.className.replace("show", ""); 
+			}, 3000);
+			}
+		</script>
+    </body>
+</html>

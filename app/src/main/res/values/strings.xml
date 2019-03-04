@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cast Demo</string>
+    <string name="action_settings">Settings</string>
+    <string name="media_route_menu_title">Play on&#8230;</string>
+    <string name="tool_bar_title">TV Remote</string>
+    <string name="room_number">Room 2060</string>
+    <string name="welcome_msg">Welcome, Mr. Guo</string>
+    <string name="disconnect">disconnect to hi Sharp</string>
+    <string name="connecting">casting to hi Sharp</string>
+    <string name="connected">cast to hi Sharp</string>
+</resources>

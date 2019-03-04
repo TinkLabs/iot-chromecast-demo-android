@@ -1,0 +1,65 @@
+{
+  "screen": "",
+  "options": [
+    {
+      "screen": "http://rom.handy.travel/tv/root1.png",
+      "options": [
+        {
+          "screen": "http://rom.handy.travel/tv/bill1.png",
+          "api": "https://www.google.com"
+        }
+      ]
+    },
+    {
+      "screen": "http://rom.handy.travel/tv/root2.png",
+      "options": [
+        {
+          "screen": "http://rom.handy.travel/tv/dining1.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/dining2.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/dining3.png",
+          "api": "https://www.google.com"
+        }
+      ]
+    },
+    {
+      "screen": "http://rom.handy.travel/tv/root3.png",
+      "options": [
+        {
+          "screen": "http://rom.handy.travel/tv/restaurant1.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/restaurant2.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/restaurant3.png",
+          "api": "https://www.google.com"
+        }
+      ]
+    },
+    {
+      "screen": "http://rom.handy.travel/tv/root4.png",
+      "options": [
+        {
+          "screen": "http://rom.handy.travel/tv/facilities1.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/facilities2.png",
+          "api": "https://www.google.com"
+        },
+        {
+          "screen": "http://rom.handy.travel/tv/facilities3.png",
+          "api": "https://www.google.com"
+        }
+      ]
+    }
+  ]
+}
